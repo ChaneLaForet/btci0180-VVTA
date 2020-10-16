@@ -33,7 +33,7 @@ public class EmployeeTest {
 
     @Order(2)
     @Test
-    public void constructor_should_setAllFieldsCorrectly() {                     //a trebuit sa fie public
+    void constructor_should_setAllFieldsCorrectly() {
         Employee newEmployee1 = new Employee();
         Employee newEmployee2 = new Employee("Benjamin", "Pratt", "1234", DidacticFunction.TEACHER, 30.0d);
 
@@ -62,7 +62,7 @@ public class EmployeeTest {
     }
 
     @Test
-    public void getEmployeeFirstName_should_returnTheCorrectValue() {
+    void getEmployeeFirstName_should_returnTheCorrectValue() {
         assertNotEquals(null, e3.getFirstName());
         assertEquals("Mary", e3.getFirstName());
 
@@ -74,7 +74,7 @@ public class EmployeeTest {
     }
 
     @Test
-    public void getCnp_should_returnTheCorrectValue() {
+    void getCnp_should_returnTheCorrectValue() {
         Employee emp = new Employee("James", "Oxford", "12345", DidacticFunction.LECTURER, 700d);
 
         assertNotNull(emp.getCnp());
@@ -84,7 +84,7 @@ public class EmployeeTest {
     }
 
     @Test
-    public void getFirstName_throwErrorVersion() {
+    void getFirstName_throwErrorVersion() {
         try {
             e2.getFirstName();
             assert (false);
@@ -97,13 +97,13 @@ public class EmployeeTest {
 
     @Test
     @Disabled("For learning purposes")
-    public void getFirstName_disabledTestVersion() {
+    void getFirstName_disabledTestVersion() {
         assertEquals("", e1.getFirstName());
         System.out.println("Disabled test. Ok.");
     }
 
     @Test
-    public void setFirstName_assertAll() {
+    void setFirstName_assertAll() {
         e1.setFirstName("Jen");
 //        e2.setFirstName("Patrick");           e2 is null - NullPointerException
         e2 = new Employee("Patrick", "sam", "123", DidacticFunction.TEACHER, 30d);
@@ -126,8 +126,8 @@ public class EmployeeTest {
 
     @ParameterizedTest
     //This feature enables us to execute a single test method multiple times with different parameters.
-    @ValueSource(strings = {"Bob", "Claudia"})                          //!!! Nu functioneaza decat daca se executa toate testele
-    public void setFirstName_parametrizedTest(String firstName) {
+    @ValueSource(strings = {"Bob", "Claudia"})
+    void setFirstName_parametrizedTest(String firstName) {
         Employee emp1 = new Employee();
         emp1.setFirstName(firstName);
 
@@ -137,7 +137,7 @@ public class EmployeeTest {
 
     @Order(1)
     @Test
-    public void setCnp_order1() {
+    void setCnp_order1() {
         Employee emp = new Employee();
         emp.setCnp("12345");
         assertEquals("12345", emp.getCnp());
@@ -146,7 +146,7 @@ public class EmployeeTest {
 
     @Test
     @Timeout(value = 1, unit = TimeUnit.SECONDS)
-    public void setSalary_timeout() {
+    void setSalary_timeout() {
         Employee emp = new Employee();
         for (int i = 0; i < 3; i++) {                   //increment i as needed
             emp.setSalary(4000d);
@@ -157,7 +157,7 @@ public class EmployeeTest {
 
     @Test
     @Timeout(5)
-    public void firstName_sleep() {
+    void firstName_sleep() {
         Employee emp = new Employee();
         try {
             Thread.sleep(1000);
