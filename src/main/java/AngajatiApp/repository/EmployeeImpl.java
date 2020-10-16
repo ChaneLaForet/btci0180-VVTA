@@ -56,7 +56,6 @@ public class EmployeeImpl implements EmployeeRepositoryInterface {
 				try {
 					final Employee employee = Employee.getEmployeeFromString(line, counter);
 					employeeList.add(employee);
-					//counter++;
 				} catch (EmployeeException ex) {
 					System.err.println(ERROR_WHILE_READING_MSG + ex.toString());
 				}

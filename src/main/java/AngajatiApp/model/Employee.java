@@ -110,7 +110,7 @@ public class Employee {
             return false;
         }
 		final Employee employee = (Employee) otherEmployee;
-		boolean hasSameFirstName = this.firstName.equals(employee.getLastName()),
+		boolean hasSameFirstName = this.firstName.equals(employee.getFirstName()),
 				hasSameLastName  = this.nume.equals(employee.getLastName()),
 				hasSameCNP       = this.cnp.equals(employee.getCnp()),
 				hasSameFunction  = this.function.equals(employee.getFunction()),
@@ -157,8 +157,8 @@ public class Employee {
 				employee.setFunction(DidacticFunction.CONFERENTIAR);
 
 			employee.setSalary(Double.valueOf(attributes[SALARY_INDEX]));
-			//employee.setId(Integer.valueOf(attributes[ID]));
-			employee.setId(Integer.valueOf(line));
+			employee.setId(Integer.valueOf(attributes[ID]));
+//			employee.setId(Integer.valueOf(line));
 
 			if (!validator.isValid(employee)) {
 				throw new EmployeeException("Invalid line at: " + line);
