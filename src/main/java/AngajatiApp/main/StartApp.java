@@ -73,7 +73,7 @@ public class StartApp {
 	}
 	
 	private static DidacticFunction getDidacticFunction(String didacticFunction) {
-		if (didacticFunction.toUpperCase().equals("ASISTENT"))
+		if (didacticFunction.equalsIgnoreCase("ASISTENT"))
 		{
 			return DidacticFunction.ASISTENT;
 		}

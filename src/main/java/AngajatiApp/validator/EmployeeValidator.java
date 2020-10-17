@@ -27,7 +27,7 @@ public class EmployeeValidator {
 	}
 
 	private boolean isCnpValid(Employee employee) {
-		return employee.getCnp().matches("[a-z0-9]+") && (employee.getCnp().length() == 13);
+		return employee.getCnp().matches("[0-9]+") && (employee.getCnp().length() == 13);
 	}
 
 	private boolean isLastNameValid(Employee employee) {
