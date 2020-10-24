@@ -47,6 +47,20 @@ class EmployeeMockTest {
         //dar in cod nu exista astfel de validare, numai ca numele sa fie format din minim 2 litere
         //EmployeeValidator ->  isFirstNameValid (linia 41)
         assertFalse(employeeMock.addEmployee(testEmployee));
+
+        try {
+            int employeeNr = employeeMock.getEmployeeList().size();
+            try {
+                employeeMock.addEmployee(testEmployee);
+                assertEquals(employeeNr, employeeMock.getEmployeeList().size());
+                System.out.println("TC1_BB: Employee was not added.");
+            } catch (Exception e) {
+                e.printStackTrace();
+                assert (false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -85,6 +99,20 @@ class EmployeeMockTest {
         testEmployee.setFunction(DidacticFunction.LECTURER);
 
         assertFalse(employeeMock.addEmployee(testEmployee));
+
+        try {
+            int employeeNr = employeeMock.getEmployeeList().size();
+            try {
+                employeeMock.addEmployee(testEmployee);
+                assertEquals(employeeNr, employeeMock.getEmployeeList().size());
+                System.out.println("TC3_BB: Employee was not added.");
+            } catch (Exception e) {
+                e.printStackTrace();
+                assert (false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -121,6 +149,20 @@ class EmployeeMockTest {
         testEmployee.setFunction(DidacticFunction.LECTURER);
 
         assertFalse(employeeMock.addEmployee(testEmployee));
+
+        try {
+            int employeeNr = employeeMock.getEmployeeList().size();
+            try {
+                employeeMock.addEmployee(testEmployee);
+                assertEquals(employeeNr, employeeMock.getEmployeeList().size());
+                System.out.println("TC5_BB: Employee was not added.");
+            } catch (Exception e) {
+                e.printStackTrace();
+                assert (false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -133,6 +175,20 @@ class EmployeeMockTest {
         testEmployee.setFunction(DidacticFunction.LECTURER);
 
         assertFalse(employeeMock.addEmployee(testEmployee));
+
+        try {
+            int employeeNr = employeeMock.getEmployeeList().size();
+            try {
+                employeeMock.addEmployee(testEmployee);
+                assertEquals(employeeNr, employeeMock.getEmployeeList().size());
+                System.out.println("TC6_BB: Employee was not added.");
+            } catch (Exception e) {
+                e.printStackTrace();
+                assert (false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -199,5 +255,19 @@ class EmployeeMockTest {
         testEmployee.setFunction(DidacticFunction.LECTURER);
 
         assertFalse(employeeMock.addEmployee(testEmployee));
+
+        try {
+            int employeeNr = employeeMock.getEmployeeList().size();
+            try {
+                employeeMock.addEmployee(testEmployee);
+                assertEquals(employeeNr, employeeMock.getEmployeeList().size());
+                System.out.println("TC9_BB: Employee was not added.");
+            } catch (Exception e) {
+                e.printStackTrace();
+                assert (false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
