@@ -195,7 +195,7 @@ class EmployeeMockTest {
         testEmployee.setSalary(3000.0);
         testEmployee.setFunction(DidacticFunction.LECTURER);
 
-        //assertTrue(employeeMock.addEmployee(testEmployee));
+        assertTrue(employeeMock.addEmployee(testEmployee));
 
         try {
             int employeeNr = employeeMock.getEmployeeList().size();
