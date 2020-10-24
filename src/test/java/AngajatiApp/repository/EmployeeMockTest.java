@@ -104,7 +104,7 @@ class EmployeeMockTest {
                 System.out.println("TC4_BB: Employee was added successfully.");
             } catch (Exception e) {
                 e.printStackTrace();
-                assert (false);              //TODO
+                assert (false);              
             }
         } catch (Exception e) {
             e.printStackTrace();
