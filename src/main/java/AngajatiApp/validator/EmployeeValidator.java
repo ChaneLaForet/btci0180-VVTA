@@ -3,6 +3,8 @@ package AngajatiApp.validator;
 import AngajatiApp.controller.DidacticFunction;
 import AngajatiApp.model.Employee;
 
+import static java.lang.Character.isUpperCase;
+
 public class EmployeeValidator {
 	
 	public EmployeeValidator(){}
@@ -35,7 +37,8 @@ public class EmployeeValidator {
 	}
 
 	private boolean isFirstNameValid(Employee employee) {
-		return employee.getFirstName().matches("[a-zA-Z]+") && (employee.getFirstName().length() > 2);
+		boolean firstLetter = Character.isUpperCase(employee.getFirstName().charAt(0));
+		return employee.getFirstName().matches("[a-zA-Z]+") && (employee.getFirstName().length() > 2) && firstLetter;
 	}
 	
 }
