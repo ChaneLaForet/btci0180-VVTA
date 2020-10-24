@@ -52,13 +52,27 @@ class EmployeeMockTest {
     @Test
     void addEmployee_TC2_BB() {     //cnp contine si o litera
         Employee testEmployee = new Employee();
-        testEmployee.setFirstName("mary");
+        testEmployee.setFirstName("Mary");
         testEmployee.setLastName("Westbrook");
         testEmployee.setCnp("a234567890123");
         testEmployee.setSalary(3000.0);
         testEmployee.setFunction(DidacticFunction.LECTURER);
 
         assertFalse(employeeMock.addEmployee(testEmployee));
+
+        try {
+            int employeeNr = employeeMock.getEmployeeList().size();
+            try {
+                employeeMock.addEmployee(testEmployee);
+                assertEquals(employeeNr, employeeMock.getEmployeeList().size());
+                System.out.println("TC2_BB: Employee was not added.");
+            } catch (Exception e) {
+                e.printStackTrace();
+                assert (false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
