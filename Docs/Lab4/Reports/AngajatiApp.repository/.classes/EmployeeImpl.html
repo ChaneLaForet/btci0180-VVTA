@@ -1,0 +1,178 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: EmployeeImpl</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">AngajatiApp.repository</a> ]
+</div>
+
+<h1>Coverage Summary for Class: EmployeeImpl (AngajatiApp.repository)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EmployeeImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 42)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package AngajatiApp.repository;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.io.*;
+<i>4</i>&nbsp;import java.util.ArrayList;
+<i>5</i>&nbsp;import java.util.Collections;
+<i>6</i>&nbsp;import java.util.List;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import AngajatiApp.model.AgeCriteria;
+<i>9</i>&nbsp;import AngajatiApp.controller.DidacticFunction;
+<i>10</i>&nbsp;import AngajatiApp.model.Employee;
+<i>11</i>&nbsp;import AngajatiApp.validator.EmployeeException;
+<i>12</i>&nbsp;import AngajatiApp.validator.EmployeeValidator;
+<i>13</i>&nbsp;import AngajatiApp.model.SalaryCriteria;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;public class EmployeeImpl implements EmployeeRepositoryInterface {
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;	private static final String ERROR_WHILE_READING_MSG = &quot;Error while reading: &quot;;
+<b class="nc"><i>18</i>&nbsp;	private final String employeeDBFile = &quot;employeeDB/employees.txt&quot;;</b>
+<b class="nc"><i>19</i>&nbsp;	private EmployeeValidator employeeValidator = new EmployeeValidator();</b>
+<b class="nc"><i>20</i>&nbsp;	private List&lt;Employee&gt; employeeList = new ArrayList&lt;&gt;();</b>
+<i>21</i>&nbsp;	
+<b class="nc"><i>22</i>&nbsp;	public EmployeeImpl() {</b>
+<b class="nc"><i>23</i>&nbsp;		employeeList = loadEmployeesFromFile();</b>
+<i>24</i>&nbsp;	}
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;	@Override
+<i>27</i>&nbsp;	public boolean addEmployee(Employee employee) {
+<b class="nc"><i>28</i>&nbsp;		employee.setId(employeeList.size());</b>
+<b class="nc"><i>29</i>&nbsp;		if (employeeValidator.isValid(employee)) {</b>
+<b class="nc"><i>30</i>&nbsp;			BufferedWriter bw = null;</b>
+<i>31</i>&nbsp;			try {
+<b class="nc"><i>32</i>&nbsp;				bw = new BufferedWriter(new FileWriter(employeeDBFile, true));</b>
+<b class="nc"><i>33</i>&nbsp;				bw.write(employee.toString());</b>
+<b class="nc"><i>34</i>&nbsp;				bw.newLine();</b>
+<b class="nc"><i>35</i>&nbsp;				bw.close();</b>
+<b class="nc"><i>36</i>&nbsp;				employeeList.add(employee);</b>
+<b class="nc"><i>37</i>&nbsp;				return true;</b>
+<b class="nc"><i>38</i>&nbsp;			} catch (IOException e) {</b>
+<b class="nc"><i>39</i>&nbsp;				e.printStackTrace();</b>
+<i>40</i>&nbsp;			}
+<i>41</i>&nbsp;		}
+<b class="nc"><i>42</i>&nbsp;		return false;</b>
+<i>43</i>&nbsp;	}
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;	@Override
+<i>46</i>&nbsp;	public void modifyEmployeeFunction(Employee oldEmployee, DidacticFunction newFunction) {
+<b class="nc"><i>47</i>&nbsp;		oldEmployee.setFunction(newFunction);</b>
+<i>48</i>&nbsp;	}
+<i>49</i>&nbsp;	
+<i>50</i>&nbsp;	private List&lt;Employee&gt; loadEmployeesFromFile() {
+<b class="nc"><i>51</i>&nbsp;		final List&lt;Employee&gt; employeeList = new ArrayList&lt;Employee&gt;();</b>
+<b class="nc"><i>52</i>&nbsp;		try (BufferedReader br = new BufferedReader(new FileReader(employeeDBFile));){</b>
+<i>53</i>&nbsp;			String line;
+<b class="nc"><i>54</i>&nbsp;			int counter = 0;</b>
+<b class="nc"><i>55</i>&nbsp;			while ((line = br.readLine()) != null) {</b>
+<i>56</i>&nbsp;				try {
+<b class="nc"><i>57</i>&nbsp;					final Employee employee = Employee.getEmployeeFromString(line, counter);</b>
+<b class="nc"><i>58</i>&nbsp;					employeeList.add(employee);</b>
+<b class="nc"><i>59</i>&nbsp;				} catch (EmployeeException ex) {</b>
+<b class="nc"><i>60</i>&nbsp;					System.err.println(ERROR_WHILE_READING_MSG + ex.toString());</b>
+<b class="nc"><i>61</i>&nbsp;				}</b>
+<i>62</i>&nbsp;			}
+<b class="nc"><i>63</i>&nbsp;		} catch (IOException e) {</b>
+<b class="nc"><i>64</i>&nbsp;			System.err.println(ERROR_WHILE_READING_MSG + e);</b>
+<b class="nc"><i>65</i>&nbsp;		} </b>
+<b class="nc"><i>66</i>&nbsp;		return employeeList;</b>
+<i>67</i>&nbsp;	}
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;	@Override
+<i>70</i>&nbsp;	public List&lt;Employee&gt; getEmployeeList() {
+<b class="nc"><i>71</i>&nbsp;		return employeeList;</b>
+<i>72</i>&nbsp;	}
+<i>73</i>&nbsp;
+<i>74</i>&nbsp;	@Override
+<i>75</i>&nbsp;	public List&lt;Employee&gt; getEmployeeByCriteria() {
+<b class="nc"><i>76</i>&nbsp;		List&lt;Employee&gt; employeeSortedList = new ArrayList&lt;Employee&gt;(employeeList);</b>
+<b class="nc"><i>77</i>&nbsp;		Collections.copy(employeeSortedList, employeeList);</b>
+<b class="nc"><i>78</i>&nbsp;		Collections.sort(employeeSortedList, new AgeCriteria());</b>
+<i>79</i>&nbsp;		//System.out.println(employeeSortedList);
+<b class="nc"><i>80</i>&nbsp;		Collections.sort(employeeSortedList, new SalaryCriteria());</b>
+<i>81</i>&nbsp;		//System.out.println(employeeSortedList);
+<b class="nc"><i>82</i>&nbsp;		return employeeSortedList;</b>
+<i>83</i>&nbsp;	}
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;	@Override
+<i>86</i>&nbsp;	public Employee findEmployeeById(int idOldEmployee) {
+<b class="nc"><i>87</i>&nbsp;		for (Employee employee : employeeList) {</b>
+<b class="nc"><i>88</i>&nbsp;			if (employee.getId() == idOldEmployee) {</b>
+<b class="nc"><i>89</i>&nbsp;				return employee;</b>
+<i>90</i>&nbsp;			}
+<b class="nc"><i>91</i>&nbsp;		}</b>
+<b class="nc"><i>92</i>&nbsp;		return null;</b>
+<i>93</i>&nbsp;	}
+<i>94</i>&nbsp;
+<i>95</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-10-31 16:06</div>
+</div>
+</body>
+</html>
