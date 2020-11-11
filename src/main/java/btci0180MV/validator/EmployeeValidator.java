@@ -1,7 +1,7 @@
-package AngajatiApp.validator;
+package btci0180MV.validator;
 
-import AngajatiApp.controller.DidacticFunction;
-import AngajatiApp.model.Employee;
+import btci0180MV.controller.DidacticFunction;
+import btci0180MV.model.Employee;
 
 import static java.lang.Character.isUpperCase;
 

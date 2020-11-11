@@ -1,14 +1,14 @@
-package AngajatiApp.main;
+package btci0180MV.main;
 
-import AngajatiApp.controller.DidacticFunction;
-import AngajatiApp.model.Employee;
-import AngajatiApp.repository.EmployeeImpl;
+import btci0180MV.controller.DidacticFunction;
+import btci0180MV.model.Employee;
+import btci0180MV.repository.EmployeeImpl;
 //import repository.EmployeeMock;
-import AngajatiApp.repository.EmployeeRepositoryInterface;
+import btci0180MV.repository.EmployeeRepositoryInterface;
 
 import java.util.Scanner;
 
-import AngajatiApp.controller.EmployeeController;
+import btci0180MV.controller.EmployeeController;
 
 //functionalitati
 //i.	 adaugarea unui nou angajat (nume, prenume, CNP, functia didactica, salariul de incadrare);

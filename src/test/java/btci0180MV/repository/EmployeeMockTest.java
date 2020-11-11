@@ -1,10 +1,8 @@
-package AngajatiApp.repository;
+package btci0180MV.repository;
 
-import AngajatiApp.controller.DidacticFunction;
-import AngajatiApp.model.Employee;
-import org.junit.jupiter.api.AfterEach;
+import btci0180MV.controller.DidacticFunction;
+import btci0180MV.model.Employee;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

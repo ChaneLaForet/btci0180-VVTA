@@ -1,6 +1,6 @@
-package AngajatiApp.model;
+package btci0180MV.model;
 
-import AngajatiApp.controller.DidacticFunction;
+import btci0180MV.controller.DidacticFunction;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;

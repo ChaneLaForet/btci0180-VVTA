@@ -1,7 +1,7 @@
-package AngajatiApp.repository;
+package btci0180MV.repository;
 
-import AngajatiApp.controller.DidacticFunction;
-import AngajatiApp.model.Employee;
+import btci0180MV.controller.DidacticFunction;
+import btci0180MV.model.Employee;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class EmployeeMockTestLab4 {
+public class EmployeeMockLab4Test {
 
     private EmployeeMock employeeMock;
 

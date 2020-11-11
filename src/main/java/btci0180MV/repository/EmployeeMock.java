@@ -1,11 +1,11 @@
-package AngajatiApp.repository;
+package btci0180MV.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import AngajatiApp.controller.DidacticFunction;
-import AngajatiApp.model.Employee;
-import AngajatiApp.validator.EmployeeValidator;
+import btci0180MV.controller.DidacticFunction;
+import btci0180MV.model.Employee;
+import btci0180MV.validator.EmployeeValidator;
 
 public class EmployeeMock implements EmployeeRepositoryInterface {
 

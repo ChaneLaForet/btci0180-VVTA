@@ -1,8 +1,8 @@
-package AngajatiApp.model;
+package btci0180MV.model;
 
-import AngajatiApp.controller.DidacticFunction;
-import AngajatiApp.validator.EmployeeException;
-import AngajatiApp.validator.EmployeeValidator;
+import btci0180MV.controller.DidacticFunction;
+import btci0180MV.validator.EmployeeException;
+import btci0180MV.validator.EmployeeValidator;
 
 public class Employee {
 

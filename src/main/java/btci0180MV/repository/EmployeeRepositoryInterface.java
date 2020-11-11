@@ -1,9 +1,9 @@
-package AngajatiApp.repository;
+package btci0180MV.repository;
 
 import java.util.List;
 
-import AngajatiApp.controller.DidacticFunction;
-import AngajatiApp.model.Employee;
+import btci0180MV.controller.DidacticFunction;
+import btci0180MV.model.Employee;
 
 public interface EmployeeRepositoryInterface {
 	
